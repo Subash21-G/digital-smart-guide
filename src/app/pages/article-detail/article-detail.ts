@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ARTICLES, Article } from '../../data/articles';
 
@@ -10,10 +10,18 @@ import { ARTICLES, Article } from '../../data/articles';
   styleUrl: './article-detail.scss'
 })
 export class ArticleDetail {
-  article?: Article;
+  private route = inject(ActivatedRoute);
 
-  constructor(private route: ActivatedRoute) {
-    const slug = this.route.snapshot.paramMap.get('slug');
-    this.article = ARTICLES.find(x => x.slug === slug);
-  }
+  slug = this.route.snapshot.paramMap.get('slug');
+
+  article: Article | undefined = ARTICLES.find(
+    article => article.slug === this.slug
+  );
+
+  relatedArticles: Article[] = ARTICLES
+    .filter(article =>
+      article.category === this.article?.category &&
+      article.slug !== this.article?.slug
+    )
+    .slice(0, 3);
 }
