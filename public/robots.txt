@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://subash21-g.github.io/digital-smart-guide/sitemap.xml

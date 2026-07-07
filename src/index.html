@@ -3,6 +3,32 @@
 <head>
   <meta charset="utf-8">
   <title>Digital Smart Guide</title>
+  <script>
+  (function () {
+      const redirect = sessionStorage.redirect;
+
+      delete sessionStorage.redirect;
+
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, '', redirect);
+      }
+
+      const query = window.location.search;
+
+      if (query.startsWith('?/')) {
+        const newUrl =
+          window.location.pathname +
+          query
+            .slice(2)
+            .replace(/~and~/g, '&')
+            .replace(/\?/g, '&') +
+          window.location.hash;
+
+        window.history.replaceState(null, '', newUrl);
+      }
+    })();</script>
+
+  <title>Digital Smart Guide</title>
   <base href="/">
   <meta name="description" content="Digital Smart Guide provides Tamil-English guides for finance, vehicles, tech products, courses and useful online services.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
