@@ -1,68 +1,136 @@
-<section class="hero">
+<section class="hero-section">
   <div class="container hero-grid">
-    <div>
-      <p class="tag">Tamil-English Affiliate Guide Website</p>
-      <h1>Smart Guides for Finance, Vehicles, Tech Products and Courses</h1>
+
+    <div class="hero-content">
+      <p class="top-label">Digital Smart Guide</p>
+
+      <h1>
+        Simple Guides to Compare Finance, Vehicles, Tech Products and Courses
+      </h1>
+
       <p class="hero-text">
-        Compare products, understand finance options, explore useful apps,
-        and choose better online services with simple practical guides.
+        Beginner-friendly Tamil-English guides to help you understand important
+        points before applying, purchasing or choosing any product or service.
       </p>
 
       <div class="hero-actions">
-        <a href="#latest" class="btn primary">Explore Guides</a>
-        <a routerLink="/affiliate-disclosure" class="btn secondary">Affiliate Disclosure</a>
+        <a routerLink="/category/finance" class="primary-btn">
+          Explore Guides
+        </a>
+
+        <a routerLink="/about" class="secondary-btn">
+          About Us
+        </a>
       </div>
     </div>
 
     <div class="hero-card">
-      <h3>Website Purpose</h3>
-      <ul>
-        <li>Product reviews and buying guides</li>
-        <li>Finance and loan awareness guides</li>
-        <li>Bike, EV and tech comparisons</li>
-        <li>Course and career suggestions</li>
-      </ul>
+      <h2>What We Cover</h2>
+
+      <div class="hero-list">
+        <div>
+          <strong>Finance</strong>
+          <span>Credit cards, accounts, insurance</span>
+        </div>
+
+        <div>
+          <strong>Vehicles</strong>
+          <span>Bikes, EV scooter, insurance</span>
+        </div>
+
+        <div>
+          <strong>Tech Products</strong>
+          <span>Laptops, monitors and gadgets</span>
+        </div>
+
+        <div>
+          <strong>Courses</strong>
+          <span>.NET, CAD and career courses</span>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
-<section class="container section">
-  <div class="section-title">
-    <p>Popular Categories</p>
-    <h2>Choose a Guide Category</h2>
-  </div>
+<section class="category-section">
+  <div class="container">
 
-  <div class="category-grid">
-    <a class="category-card"
-       *ngFor="let item of categories"
-       [routerLink]="['/category', item.id]">
-      <div class="icon">{{ item.icon }}</div>
-      <h3>{{ item.title }}</h3>
-      <p>{{ item.description }}</p>
-    </a>
-  </div>
-</section>
+    <div class="section-title">
+      <p>Browse Categories</p>
+      <h2>Choose a Guide Category</h2>
+    </div>
 
-<section class="container section" id="latest">
-  <div class="section-title">
-    <p>Latest Articles</p>
-    <h2>Useful Guides to Start</h2>
-  </div>
+    <div class="category-grid">
+      <a class="category-card"
+         *ngFor="let category of categories"
+         [routerLink]="['/category', category.slug]">
 
-  <div class="article-grid">
-    <article class="article-card" *ngFor="let article of articles">
-      <span>{{ article.category }}</span>
-      <h3>{{ article.title }}</h3>
-      <p>{{ article.description }}</p>
-      <a [routerLink]="['/article', article.slug]">Read Guide</a>
-    </article>
+        <div class="category-icon">
+          {{ category.name.charAt(0) }}
+        </div>
+
+        <h3>{{ category.name }}</h3>
+        <p>{{ category.description }}</p>
+        <span>{{ category.count }} Guides →</span>
+      </a>
+    </div>
+
   </div>
 </section>
 
-<section class="container disclosure-box">
-  <h3>Affiliate Disclosure</h3>
-  <p>
-    This website may contain affiliate links. If you apply, purchase, book or sign up
-    through these links, I may earn a small commission at no extra cost to you.
-  </p>
+<section class="guides-section">
+  <div class="container">
+
+    <div class="section-title">
+      <p>Latest Guides</p>
+      <h2>Useful Comparison Guides</h2>
+    </div>
+
+    <div class="guide-grid">
+      <a class="guide-card"
+         *ngFor="let article of featuredArticles"
+         [routerLink]="['/article', article.slug]">
+
+        <span class="badge">{{ article.category }}</span>
+
+        <h3>{{ article.title }}</h3>
+
+        <p>{{ article.description }}</p>
+
+        <strong>Read Guide →</strong>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="trust-section">
+  <div class="container trust-grid">
+
+    <div class="trust-box">
+      <h3>Simple Explanation</h3>
+      <p>
+        We write guides in easy language so beginners can understand important
+        points before making a decision.
+      </p>
+    </div>
+
+    <div class="trust-box">
+      <h3>Disclosure Friendly</h3>
+      <p>
+        We clearly mention affiliate links, disclaimers and important safety
+        points for users.
+      </p>
+    </div>
+
+    <div class="trust-box">
+      <h3>Compare Before Choosing</h3>
+      <p>
+        We encourage users to compare price, charges, eligibility, features and
+        official terms before applying or purchasing.
+      </p>
+    </div>
+
+  </div>
 </section>

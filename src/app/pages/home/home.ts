@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ARTICLES } from '../../data/articles';
+import { ARTICLES, Article } from '../../data/articles';
 
 @Component({
   selector: 'app-home',
@@ -10,32 +10,34 @@ import { ARTICLES } from '../../data/articles';
   styleUrl: './home.scss'
 })
 export class Home {
+  articles: Article[] = ARTICLES;
+
+  featuredArticles: Article[] = ARTICLES.slice(0, 6);
+
   categories = [
     {
-      id: 'finance',
-      title: 'Finance',
-      description: 'Credit cards, bank accounts, loans, insurance and demat account guides.',
-      icon: '💳'
+      name: 'Finance',
+      slug: 'finance',
+      description: 'Credit cards, savings accounts, insurance and finance guides.',
+      count: ARTICLES.filter(article => article.category === 'Finance').length
     },
     {
-      id: 'vehicles',
-      title: 'Vehicles',
-      description: 'Bike, scooter, EV, car, insurance and loan comparison guides.',
-      icon: '🏍️'
+      name: 'Vehicles',
+      slug: 'vehicles',
+      description: 'Bike, EV scooter, petrol bike and insurance comparison guides.',
+      count: ARTICLES.filter(article => article.category === 'Vehicles').length
     },
     {
-      id: 'tech-products',
-      title: 'Tech Products',
-      description: 'Laptop, monitor, mouse, keyboard, SSD and RAM buying guides.',
-      icon: '💻'
+      name: 'Tech Products',
+      slug: 'tech-products',
+      description: 'Laptop, monitor and useful tech product buying guides.',
+      count: ARTICLES.filter(article => article.category === 'Tech Products').length
     },
     {
-      id: 'courses',
-      title: 'Courses',
-      description: '.NET, CAD, full stack, aptitude and career course guides.',
-      icon: '🎓'
+      name: 'Courses',
+      slug: 'courses',
+      description: 'Career course, CAD course and software learning guides.',
+      count: ARTICLES.filter(article => article.category === 'Courses').length
     }
   ];
-
-  articles = ARTICLES.slice(0, 8);
 }
