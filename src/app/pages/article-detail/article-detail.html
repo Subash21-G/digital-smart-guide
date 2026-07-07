@@ -1,0 +1,47 @@
+<section class="article-page" *ngIf="article; else notFound">
+  <div class="container">
+    <a routerLink="/" class="back-link">← Back to Home</a>
+
+    <span class="category">{{ article.category }}</span>
+    <h1>{{ article.title }}</h1>
+    <p class="description">{{ article.description }}</p>
+
+    <div class="content">
+      <p *ngFor="let para of article.content">{{ para }}</p>
+    </div>
+
+    <div class="cta-box">
+      <h3>Recommended Link</h3>
+      <p>
+        Click the button below to check details on the official partner website.
+      </p>
+
+      <a [href]="article.affiliateUrl" target="_blank" rel="nofollow sponsored noopener">
+        {{ article.buttonText }}
+      </a>
+    </div>
+
+    <div class="warning-box">
+      <strong>Disclosure:</strong>
+      This article may contain affiliate links. If you apply, purchase, book or sign up
+      through these links, I may earn a small commission at no extra cost to you.
+    </div>
+
+    <div class="warning-box finance">
+      <strong>Finance Disclaimer:</strong>
+      Approval for credit cards, loans, bank accounts and insurance depends on provider
+      eligibility, KYC, CIBIL score, income proof and internal policy. This website does
+      not guarantee approval.
+    </div>
+  </div>
+</section>
+
+<ng-template #notFound>
+  <section class="article-page">
+    <div class="container">
+      <h1>Article Not Found</h1>
+      <p>The article you are looking for is not available.</p>
+      <a routerLink="/" class="back-link">← Back to Home</a>
+    </div>
+  </section>
+</ng-template>

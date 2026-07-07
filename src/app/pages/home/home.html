@@ -1,0 +1,68 @@
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="tag">Tamil-English Affiliate Guide Website</p>
+      <h1>Smart Guides for Finance, Vehicles, Tech Products and Courses</h1>
+      <p class="hero-text">
+        Compare products, understand finance options, explore useful apps,
+        and choose better online services with simple practical guides.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#latest" class="btn primary">Explore Guides</a>
+        <a routerLink="/affiliate-disclosure" class="btn secondary">Affiliate Disclosure</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Website Purpose</h3>
+      <ul>
+        <li>Product reviews and buying guides</li>
+        <li>Finance and loan awareness guides</li>
+        <li>Bike, EV and tech comparisons</li>
+        <li>Course and career suggestions</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="section-title">
+    <p>Popular Categories</p>
+    <h2>Choose a Guide Category</h2>
+  </div>
+
+  <div class="category-grid">
+    <a class="category-card"
+       *ngFor="let item of categories"
+       [routerLink]="['/category', item.id]">
+      <div class="icon">{{ item.icon }}</div>
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+    </a>
+  </div>
+</section>
+
+<section class="container section" id="latest">
+  <div class="section-title">
+    <p>Latest Articles</p>
+    <h2>Useful Guides to Start</h2>
+  </div>
+
+  <div class="article-grid">
+    <article class="article-card" *ngFor="let article of articles">
+      <span>{{ article.category }}</span>
+      <h3>{{ article.title }}</h3>
+      <p>{{ article.description }}</p>
+      <a [routerLink]="['/article', article.slug]">Read Guide</a>
+    </article>
+  </div>
+</section>
+
+<section class="container disclosure-box">
+  <h3>Affiliate Disclosure</h3>
+  <p>
+    This website may contain affiliate links. If you apply, purchase, book or sign up
+    through these links, I may earn a small commission at no extra cost to you.
+  </p>
+</section>
