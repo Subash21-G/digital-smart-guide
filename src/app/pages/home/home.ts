@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 import { ARTICLES, Article } from '../../data/articles';
 
 @Component({
@@ -9,7 +10,10 @@ import { ARTICLES, Article } from '../../data/articles';
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
-export class Home {
+export class Home implements OnInit {
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+
   articles: Article[] = ARTICLES;
 
   featuredArticles: Article[] = ARTICLES.slice(0, 6);
@@ -44,4 +48,22 @@ export class Home {
       count: ARTICLES.filter(article => article.category === 'Courses').length
     }
   ];
+
+  ngOnInit(): void {
+    this.titleService.setTitle(
+      'Digital Smart Guide | Finance, Vehicles, Tech Products and Course Guides'
+    );
+
+    this.metaService.updateTag({
+      name: 'description',
+      content:
+        'Digital Smart Guide provides simple Tamil-English guides for finance, vehicles, tech products, courses and useful online services.'
+    });
+
+    this.metaService.updateTag({
+      name: 'keywords',
+      content:
+        'Digital Smart Guide, finance guides, vehicle guides, tech product guides, course guides, credit card guide, bike guide, laptop guide'
+    });
+  }
 }
