@@ -18,25 +18,29 @@ export class Home {
     {
       name: 'Finance',
       slug: 'finance',
+      icon: '₹',
       description: 'Credit cards, savings accounts, insurance and finance guides.',
       count: ARTICLES.filter(article => article.category === 'Finance').length
     },
     {
       name: 'Vehicles',
       slug: 'vehicles',
-      description: 'Bike, EV scooter, petrol bike and insurance comparison guides.',
+      icon: '⚡',
+      description: 'Bikes, EV scooters, petrol bikes and insurance guides.',
       count: ARTICLES.filter(article => article.category === 'Vehicles').length
     },
     {
       name: 'Tech Products',
       slug: 'tech-products',
+      icon: '💻',
       description: 'Laptop, monitor and useful tech product buying guides.',
       count: ARTICLES.filter(article => article.category === 'Tech Products').length
     },
     {
       name: 'Courses',
       slug: 'courses',
-      description: 'Career course, CAD course and software learning guides.',
+      icon: '🎓',
+      description: 'Career courses, .NET, CAD and software learning guides.',
       count: ARTICLES.filter(article => article.category === 'Courses').length
     }
   ];

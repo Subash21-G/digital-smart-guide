@@ -1,64 +1,68 @@
-<section class="hero-section">
+<section class="hero">
   <div class="container hero-grid">
 
     <div class="hero-content">
-      <p class="top-label">Digital Smart Guide</p>
+      <span class="site-badge">Digital Smart Guide</span>
 
       <h1>
-        Simple Guides to Compare Finance, Vehicles, Tech Products and Courses
+        Smart Guides for Finance, Vehicles, Tech Products and Courses
       </h1>
 
-      <p class="hero-text">
-        Beginner-friendly Tamil-English guides to help you understand important
-        points before applying, purchasing or choosing any product or service.
+      <p>
+        Simple Tamil-English guides to help beginners compare important details
+        before applying, buying or choosing any product or service.
       </p>
 
-      <div class="hero-actions">
-        <a routerLink="/category/finance" class="primary-btn">
-          Explore Guides
-        </a>
-
-        <a routerLink="/about" class="secondary-btn">
-          About Us
-        </a>
+      <div class="hero-buttons">
+        <a routerLink="/category/finance" class="btn-primary">Start Reading</a>
+        <a routerLink="/about" class="btn-light">About Website</a>
       </div>
     </div>
 
-    <div class="hero-card">
-      <h2>What We Cover</h2>
+    <div class="hero-info-card">
+      <h3>Always Check Before Choosing</h3>
 
-      <div class="hero-list">
-        <div>
-          <strong>Finance</strong>
-          <span>Credit cards, accounts, insurance</span>
-        </div>
-
-        <div>
-          <strong>Vehicles</strong>
-          <span>Bikes, EV scooter, insurance</span>
-        </div>
-
-        <div>
-          <strong>Tech Products</strong>
-          <span>Laptops, monitors and gadgets</span>
-        </div>
-
-        <div>
-          <strong>Courses</strong>
-          <span>.NET, CAD and career courses</span>
-        </div>
-      </div>
+      <ul>
+        <li>Eligibility and charges</li>
+        <li>Price and hidden fees</li>
+        <li>Official terms and conditions</li>
+        <li>Refund, warranty or approval rules</li>
+      </ul>
     </div>
 
   </div>
 </section>
 
-<section class="category-section">
+<section class="quick-stats">
+  <div class="container stats-grid">
+
+    <div class="stat-box">
+      <strong>{{ articles.length }}+</strong>
+      <span>Useful Guides</span>
+    </div>
+
+    <div class="stat-box">
+      <strong>4</strong>
+      <span>Main Categories</span>
+    </div>
+
+    <div class="stat-box">
+      <strong>Free</strong>
+      <span>Beginner Information</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="categories">
   <div class="container">
 
-    <div class="section-title">
-      <p>Browse Categories</p>
+    <div class="section-heading">
+      <span>Browse Topics</span>
       <h2>Choose a Guide Category</h2>
+      <p>
+        Select a category and read simple comparison guides before making a decision.
+      </p>
     </div>
 
     <div class="category-grid">
@@ -66,25 +70,28 @@
          *ngFor="let category of categories"
          [routerLink]="['/category', category.slug]">
 
-        <div class="category-icon">
-          {{ category.name.charAt(0) }}
-        </div>
+        <div class="icon">{{ category.icon }}</div>
 
         <h3>{{ category.name }}</h3>
+
         <p>{{ category.description }}</p>
-        <span>{{ category.count }} Guides →</span>
+
+        <strong>{{ category.count }} Guides →</strong>
       </a>
     </div>
 
   </div>
 </section>
 
-<section class="guides-section">
+<section class="guides">
   <div class="container">
 
-    <div class="section-title">
-      <p>Latest Guides</p>
-      <h2>Useful Comparison Guides</h2>
+    <div class="section-heading">
+      <span>Latest Guides</span>
+      <h2>Useful Guides to Start</h2>
+      <p>
+        Read practical guides about finance, vehicles, laptops, monitors and career courses.
+      </p>
     </div>
 
     <div class="guide-grid">
@@ -105,32 +112,14 @@
   </div>
 </section>
 
-<section class="trust-section">
-  <div class="container trust-grid">
-
-    <div class="trust-box">
-      <h3>Simple Explanation</h3>
-      <p>
-        We write guides in easy language so beginners can understand important
-        points before making a decision.
-      </p>
+<section class="disclosure-section">
+  <div class="container">
+    <div class="disclosure-box">
+      <strong>Affiliate Disclosure:</strong>
+      Some links on this website may be affiliate links. If you apply, purchase
+      or sign up through our partner link, we may earn a small commission at no
+      extra cost to you. Always verify details on the official website before
+      applying or purchasing.
     </div>
-
-    <div class="trust-box">
-      <h3>Disclosure Friendly</h3>
-      <p>
-        We clearly mention affiliate links, disclaimers and important safety
-        points for users.
-      </p>
-    </div>
-
-    <div class="trust-box">
-      <h3>Compare Before Choosing</h3>
-      <p>
-        We encourage users to compare price, charges, eligibility, features and
-        official terms before applying or purchasing.
-      </p>
-    </div>
-
   </div>
 </section>
