@@ -1,52 +1,106 @@
 .footer {
   background: #020617;
   color: #cbd5e1;
-  margin-top: 60px;
-  padding-top: 40px;
-}
-
-.container {
-  width: min(1180px, 92%);
-  margin: auto;
+  padding-top: 42px;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
+  grid-template-columns: 1.4fr 0.8fr 1fr;
+  gap: 34px;
+  padding-bottom: 30px;
 }
 
-h3,
-h4 {
-  color: #ffffff;
-  margin-bottom: 12px;
-}
-
-p {
-  line-height: 1.7;
-}
-
-a {
-  display: block;
-  color: #cbd5e1;
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-
-  a:hover {
-    color: #38bdf8;
+.footer-brand {
+  h3 {
+    color: #ffffff;
+    font-size: 26px;
+    margin: 0 0 12px;
   }
 
-.copy {
-  text-align: center;
-  padding: 18px;
-  margin-top: 30px;
-  border-top: 1px solid #1e293b;
-  font-size: 14px;
+  p {
+    line-height: 1.8;
+    color: #cbd5e1;
+    max-width: 430px;
+    margin: 0 0 16px;
+  }
 }
 
-@media (max-width: 768px) {
+.footer-note {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  color: #bae6fd;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  h4 {
+    color: #ffffff;
+    margin: 0 0 14px;
+    font-size: 18px;
+  }
+
+  a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: 0.2s ease;
+
+    &:hover {
+      color: #38bdf8;
+      transform: translateX(4px);
+    }
+  }
+}
+
+.footer-disclaimer {
+  border-top: 1px solid rgba(226, 232, 240, 0.12);
+  padding: 20px 0;
+
+  p {
+    margin: 0;
+    color: #94a3b8;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+}
+
+.footer-bottom {
+  background: #000000;
+  padding: 16px 0;
+  color: #94a3b8;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding-top: 32px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-brand {
+    h3 {
+      font-size: 24px;
+    }
   }
 }
