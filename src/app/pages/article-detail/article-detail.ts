@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ARTICLES, Article } from '../../data/articles';
 
@@ -9,19 +9,36 @@ import { ARTICLES, Article } from '../../data/articles';
   templateUrl: './article-detail.html',
   styleUrl: './article-detail.scss'
 })
-export class ArticleDetail {
+export class ArticleDetail implements OnInit {
   private route = inject(ActivatedRoute);
 
-  slug = this.route.snapshot.paramMap.get('slug');
+  article: Article | undefined;
+  relatedArticles: Article[] = [];
 
-  article: Article | undefined = ARTICLES.find(
-    article => article.slug === this.slug
-  );
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const slug = params.get('slug');
 
-  relatedArticles: Article[] = ARTICLES
-    .filter(article =>
-      article.category === this.article?.category &&
-      article.slug !== this.article?.slug
-    )
-    .slice(0, 3);
+      this.article = ARTICLES.find(article => article.slug === slug);
+
+      this.relatedArticles = ARTICLES
+        .filter(article =>
+          article.category === this.article?.category &&
+          article.slug !== this.article?.slug
+        )
+        .slice(0, 3);
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  getCategorySlug(category: string): string {
+    return category
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-');
+  }
 }
