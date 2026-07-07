@@ -5,29 +5,37 @@
 }
 
 .contact-hero {
-  background: linear-gradient(135deg, #2563eb, #0f172a);
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.35), transparent 35%), linear-gradient(135deg, #020617, #0f172a 55%, #111827);
   color: #ffffff;
   padding: 42px;
   border-radius: 22px;
   margin-bottom: 28px;
 
   p {
-    margin: 0 0 8px;
-    font-weight: 700;
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.18);
     color: #bfdbfe;
+    border: 1px solid rgba(191, 219, 254, 0.25);
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 800;
+    margin: 0 0 14px;
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 40px;
+    line-height: 1.2;
     margin: 0 0 12px;
+    color: #ffffff;
   }
 
   span {
     display: block;
     max-width: 760px;
-    font-size: 18px;
-    line-height: 1.7;
-    color: #e0f2fe;
+    color: #cbd5e1;
+    line-height: 1.8;
+    font-size: 17px;
   }
 }
 
@@ -104,9 +112,10 @@
 @media (max-width: 768px) {
   .contact-hero {
     padding: 28px;
+    border-radius: 18px;
 
     h1 {
-      font-size: 32px;
+      font-size: 30px;
     }
 
     span {
