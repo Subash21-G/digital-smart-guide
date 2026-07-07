@@ -1,12 +1,20 @@
 <section class="category-page">
   <div class="container">
 
-    <div class="category-header">
-      <p>Digital Smart Guide</p>
+    <div class="category-hero">
+      <span>Digital Smart Guide</span>
       <h1>{{ categoryTitle }} Guides</h1>
-      <span>
-        Useful comparison guides and beginner-friendly information.
-      </span>
+      <p>
+        Read simple beginner-friendly guides and compare important details
+        before applying, buying or choosing any product or service.
+      </p>
+    </div>
+
+    <div class="category-info" *ngIf="articles.length > 0">
+      <p>
+        Showing <strong>{{ articles.length }}</strong> useful guides in
+        <strong>{{ categoryTitle }}</strong> category.
+      </p>
     </div>
 
     <div class="article-grid" *ngIf="articles.length > 0; else noArticles">
@@ -14,8 +22,13 @@
          *ngFor="let article of articles"
          [routerLink]="['/article', article.slug]">
 
-        <span class="badge">{{ article.category }}</span>
+        <div class="card-top">
+          <span class="badge">{{ article.category }}</span>
+          <span class="guide-label">Guide</span>
+        </div>
+
         <h2>{{ article.title }}</h2>
+
         <p>{{ article.description }}</p>
 
         <strong>Read Guide →</strong>
